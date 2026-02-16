@@ -76,11 +76,71 @@ python scripts/generate_showcase_assets.py --root .
 
 ## 作品集展示面
 
-如果你要把项目放进作品集，直接用：
+如果你要把项目放进作品集，这一节可以直接作为展示页面使用。
 
-- 展示页：`docs/showcase.md`
-- 截图目录：`docs/images/showcase/`
-- 一键刷新截图：`python scripts/generate_showcase_assets.py --root .`
+展示页同步版本：`docs/showcase.md`
+
+### 截图画廊
+
+#### 1) 报告总览（完整交付物）
+
+![Report Overview](docs/images/showcase/01_report_overview.png)
+
+#### 2) Equity 曲线（收益轨迹）
+
+![Equity Curve](docs/images/showcase/02_equity_curve.png)
+
+#### 3) Drawdown 曲线（风险回撤）
+
+![Drawdown Curve](docs/images/showcase/03_drawdown_curve.png)
+
+#### 4) 成本敏感性（假设鲁棒性）
+
+![Cost Sensitivity](docs/images/showcase/04_cost_sensitivity.png)
+
+#### 5) Execution Quality（执行质量）
+
+![Execution Quality Snapshot](docs/images/showcase/05_execution_quality_table.png)
+
+#### 6) Leaderboard（多实验排序）
+
+![Leaderboard Snapshot](docs/images/showcase/06_leaderboard_table.png)
+
+#### 7) Live Status（仓位与风险）
+
+![Live Status Snapshot](docs/images/showcase/07_live_status_table.png)
+
+### Demo 说明（作品集版）
+
+#### Demo A：从数据到报告
+
+- 目标：证明你能把策略研究流程产品化
+- 亮点：一条命令生成 HTML 报告 + 图表 + 可复现快照
+- 输出：`reports/*.html`、`reports/assets/*.png`
+
+#### Demo B：执行质量与稳健性
+
+- 目标：证明你关注可成交性，而不是只看回测收益
+- 亮点：滑点、延迟、撤单率、部分成交占比 + 成本敏感性扫描
+- 输出：`Execution Quality` 与 `Cost/Slippage Sensitivity` 面板
+
+#### Demo C：运营与风控可视化
+
+- 目标：证明你有“多策略运行 + 风险监控”视角
+- 亮点：Leaderboard 排序、Live 持仓、风险状态、最近错误
+- 输出：`reports/dashboard.html` 和 live 状态快照
+
+### 一键刷新展示素材
+
+```bash
+python scripts/generate_showcase_assets.py --root .
+```
+
+### 作品集文案模板
+
+可以在简历/作品集写：
+
+> Built a reproducible strategy-health platform that unifies backtesting, execution-quality analytics, risk-rule auditing, and live-status dashboards, with Dockerized demo and one-command report generation.
 
 ## 文档
 
