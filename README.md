@@ -55,6 +55,24 @@ python -m stratcheck healthcheck --config configs/examples/volatility_target.tom
 
 ![Stratcheck Demo Report](docs/images/demo-report.png)
 
+## 公开 Demo（Release）
+
+公开截图：
+
+![Release Demo Report](docs/images/release-demo-report.png)
+
+复现命令：
+
+```bash
+python scripts/make_demo_assets.py --output data/QQQ.csv --periods 240 --seed 7
+python -m stratcheck demo --output reports/release_demo.html --periods 240 --seed 7
+python -m stratcheck dashboard \
+  --results-jsonl reports/results.jsonl \
+  --db reports/paper_trading.sqlite \
+  --output reports/dashboard.html \
+  --reports-dir reports
+```
+
 ## 文档
 
 - `docs/index.md`
@@ -65,6 +83,14 @@ python -m stratcheck healthcheck --config configs/examples/volatility_target.tom
 - `docs/tutorials/twap-execution-quality.md`
 - `docs/tutorials/new-strategy-in-10-min.md`
 - `docs/common-pitfalls.md`
+- `docs/release-milestones.md`
+
+## 开源治理文件
+
+- `LICENSE`
+- `CONTRIBUTING.md`
+- `.github/CODEOWNERS`
+- `SECURITY.md`
 
 ## 示例项目
 

@@ -1,0 +1,10 @@
+# Default owner for all files.
+* @Constantine-S-AN
+
+# Docs and release materials.
+/docs/ @Constantine-S-AN
+/CHANGELOG.md @Constantine-S-AN
+/README.md @Constantine-S-AN
+
+# CI / release automation.
+/.github/workflows/ @Constantine-S-AN

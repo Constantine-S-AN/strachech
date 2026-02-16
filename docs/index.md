@@ -11,6 +11,7 @@
 - [Tutorial: 执行算法（TWAP）+ Execution Quality 报告](tutorials/twap-execution-quality.md)
 - [Tutorial: 10 分钟写一个新策略并跑出报告](tutorials/new-strategy-in-10-min.md)
 - [常见坑：幸存者偏差、未来函数、成本假设](common-pitfalls.md)
+- [Release Milestones（v0.2.0 / v0.3.0）](release-milestones.md)
 
 ## 你能得到什么
 
