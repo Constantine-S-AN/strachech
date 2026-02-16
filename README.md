@@ -6,6 +6,10 @@
 
 一个可复现的策略体检交付工具链：从回测与稳健性分析，到报告与 dashboard 的静态发布。
 
+## Abstract
+
+Stratcheck is a delivery-oriented quantitative research framework designed to improve trust in strategy evaluation. Traditional research workflows often fail at handoff because results are hard to reproduce, assumptions are under-tested, and execution context is weakly documented. Stratcheck addresses this by combining config-driven runs, walk-forward health checks, cost-sensitivity analysis, execution-quality diagnostics, and run-level audit replay into a unified pipeline. The system produces versionable HTML artifacts (reports, dashboards, and reproducibility bundles) and publishes them as static Pages outputs for low-friction review. In practice, this approach shifts evaluation from single-number backtest performance toward process reliability: whether a strategy remains interpretable, stable, and auditable under realistic assumptions.
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-0f766e?style=for-the-badge)](./site/index.html)
 [![Quickstart](https://img.shields.io/badge/Quickstart-5%20Minutes-1d4ed8?style=for-the-badge)](#quickstart)
 [![Docs](https://img.shields.io/badge/Docs-Read-334155?style=for-the-badge)](./docs/START_HERE.md)
