@@ -74,9 +74,7 @@ python -m stratcheck dashboard \
 python scripts/generate_showcase_assets.py --root .
 ```
 
-## 作品集展示面
-
-如果你要把项目放进作品集，这一节可以直接作为展示页面使用。
+## Project Showcase
 
 展示页同步版本：`docs/showcase.md`
 
@@ -110,23 +108,23 @@ python scripts/generate_showcase_assets.py --root .
 
 ![Live Status Snapshot](docs/images/showcase/07_live_status_table.png)
 
-### Demo 说明（作品集版）
+### Demo Narrative
 
 #### Demo A：从数据到报告
 
-- 目标：证明你能把策略研究流程产品化
+- 目标：展示策略研究流程的产品化能力
 - 亮点：一条命令生成 HTML 报告 + 图表 + 可复现快照
 - 输出：`reports/*.html`、`reports/assets/*.png`
 
 #### Demo B：执行质量与稳健性
 
-- 目标：证明你关注可成交性，而不是只看回测收益
+- 目标：展示执行可落地性，而不仅是回测收益
 - 亮点：滑点、延迟、撤单率、部分成交占比 + 成本敏感性扫描
 - 输出：`Execution Quality` 与 `Cost/Slippage Sensitivity` 面板
 
 #### Demo C：运营与风控可视化
 
-- 目标：证明你有“多策略运行 + 风险监控”视角
+- 目标：展示“多策略运行 + 风险监控”能力
 - 亮点：Leaderboard 排序、Live 持仓、风险状态、最近错误
 - 输出：`reports/dashboard.html` 和 live 状态快照
 
@@ -135,12 +133,6 @@ python scripts/generate_showcase_assets.py --root .
 ```bash
 python scripts/generate_showcase_assets.py --root .
 ```
-
-### 作品集文案模板
-
-可以在简历/作品集写：
-
-> Built a reproducible strategy-health platform that unifies backtesting, execution-quality analytics, risk-rule auditing, and live-status dashboards, with Dockerized demo and one-command report generation.
 
 ## 文档
 

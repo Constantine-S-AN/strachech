@@ -1,12 +1,12 @@
-# Portfolio Showcase Guide
+# Project Showcase Guide
 
-这个页面用于把 `stratcheck` 当成作品集项目进行展示，重点不是“功能清单”，而是“能力证明”。
+本页汇总 `stratcheck` 的公开展示素材，重点呈现可复现研究、执行质量分析、风险治理和运行可视化能力。
 
 ## 一句话定位
 
 `stratcheck` 是一个从策略研究、执行质量、风险治理到 dashboard 展示都可复现的量化策略体检工具链。
 
-## 展示建议（3 分钟讲清楚）
+## Presentation Flow
 
 1. 先展示报告总览，说明你有完整的研究输出
 2. 再展示执行质量与风险状态，说明你不仅看收益，还看落地质量
@@ -42,23 +42,23 @@
 
 ![Live Status Snapshot](images/showcase/07_live_status_table.png)
 
-## Demo 说明（可直接放作品集）
+## Demo Narrative
 
 ### Demo A：从数据到报告
 
-- 目标：证明你能把策略研究流程产品化
+- 目标：展示策略研究流程的产品化能力
 - 亮点：一条命令生成 HTML 报告 + 图表 + 可复现快照
 - 关键输出：`reports/*.html`、`reports/assets/*.png`
 
 ### Demo B：执行质量与稳健性
 
-- 目标：证明你关注可成交性，不只回测收益
+- 目标：展示执行可落地性，而不仅是回测收益
 - 亮点：滑点、延迟、撤单率、部分成交占比 + 成本敏感性扫描
 - 关键输出：`Execution Quality` 与 `Cost/Slippage Sensitivity` 面板
 
 ### Demo C：运营与风控可视化
 
-- 目标：证明你有“多策略运行 + 风险监控”视角
+- 目标：展示“多策略运行 + 风险监控”能力
 - 亮点：Leaderboard 排序、Live 持仓、风险状态、最近错误
 - 关键输出：`reports/dashboard.html` 和 live 状态快照
 
@@ -76,9 +76,3 @@ python -m stratcheck dashboard \
   --reports-dir reports
 python scripts/generate_showcase_assets.py --root .
 ```
-
-## 作品集文案模板
-
-可以在简历/作品集写：
-
-> Built a reproducible strategy-health platform that unifies backtesting, execution-quality analytics, risk-rule auditing, and live-status dashboards, with Dockerized demo and one-command report generation.
