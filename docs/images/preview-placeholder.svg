@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Stratcheck demo preview placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <rect width="1280" height="720" fill="url(#grid)" />
+
+  <rect x="120" y="120" width="1040" height="480" rx="24" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.28" />
+
+  <text x="640" y="300" text-anchor="middle" fill="#e2e8f0" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="56" font-weight="700">
+    Stratcheck Demo Preview
+  </text>
+  <text x="640" y="360" text-anchor="middle" fill="#cbd5e1" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="28">
+    GIF / short video placeholder (to be replaced in S6)
+  </text>
+
+  <circle cx="640" cy="450" r="46" fill="#0f172a" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.4" />
+  <polygon points="624,425 624,475 669,450" fill="#ffffff" />
+</svg>
