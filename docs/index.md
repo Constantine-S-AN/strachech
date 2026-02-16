@@ -6,6 +6,7 @@
 
 - [Quickstart](quickstart.md)
 - [Secrets 安全配置指南](security-secrets.md)
+- [Portfolio Showcase Guide](showcase.md)
 - [Tutorial: QQQ 轮动策略从 0 到报告](tutorials/qqq-rotation-from-zero.md)
 - [Tutorial: QQQ 低频轮动（Regime + Sensitivity）](tutorials/qqq-low-frequency-rotation-regime-sensitivity.md)
 - [Tutorial: 执行算法（TWAP）+ Execution Quality 报告](tutorials/twap-execution-quality.md)

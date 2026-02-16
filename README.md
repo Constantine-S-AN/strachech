@@ -71,13 +71,23 @@ python -m stratcheck dashboard \
   --db reports/paper_trading.sqlite \
   --output reports/dashboard.html \
   --reports-dir reports
+python scripts/generate_showcase_assets.py --root .
 ```
+
+## 作品集展示面
+
+如果你要把项目放进作品集，直接用：
+
+- 展示页：`docs/showcase.md`
+- 截图目录：`docs/images/showcase/`
+- 一键刷新截图：`python scripts/generate_showcase_assets.py --root .`
 
 ## 文档
 
 - `docs/index.md`
 - `docs/quickstart.md`
 - `docs/security-secrets.md`
+- `docs/showcase.md`
 - `docs/tutorials/qqq-rotation-from-zero.md`
 - `docs/tutorials/qqq-low-frequency-rotation-regime-sensitivity.md`
 - `docs/tutorials/twap-execution-quality.md`
