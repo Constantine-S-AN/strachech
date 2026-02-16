@@ -5,7 +5,6 @@ from pathlib import Path
 
 import pandas as pd
 import pytest
-
 from stratcheck.orchestrator import MultiRunnerOrchestrator, RunnerResourceLimits, RunnerTask
 
 

@@ -9,7 +9,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
-
 from stratcheck.analysis import compute_execution_quality_scorecard
 from stratcheck.core import BacktestEngine, CSVDataProvider, build_cost_model
 from stratcheck.dashboard.query import load_live_status
@@ -102,12 +101,11 @@ def generate_static_copies(project_root: Path, output_dir: Path) -> None:
     """Copy representative report and chart images."""
     copy_mapping = {
         project_root / "docs/images/demo-report.png": output_dir / "01_report_overview.png",
-        project_root
-        / "reports/assets/qqq_buy_and_hold_equity.png": output_dir / "02_equity_curve.png",
-        project_root
-        / "reports/assets/qqq_buy_and_hold_drawdown.png": output_dir / "03_drawdown_curve.png",
-        project_root
-        / "reports/assets/buy_and_hold_cost_sensitivity.png": output_dir
+        project_root / "reports/assets/qqq_buy_and_hold_equity.png": output_dir
+        / "02_equity_curve.png",
+        project_root / "reports/assets/qqq_buy_and_hold_drawdown.png": output_dir
+        / "03_drawdown_curve.png",
+        project_root / "reports/assets/buy_and_hold_cost_sensitivity.png": output_dir
         / "04_cost_sensitivity.png",
     }
     for source_path, destination_path in copy_mapping.items():

@@ -3,7 +3,6 @@ from __future__ import annotations
 import io
 
 import pandas as pd
-
 from stratcheck.ops.alerts import (
     AlertRouter,
     ConsoleAlertChannel,

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import pandas as pd
 import pytest
-
 from stratcheck.analysis import compute_execution_quality_scorecard
 from stratcheck.core.backtest import OrderRecord
 from stratcheck.core.strategy import Fill

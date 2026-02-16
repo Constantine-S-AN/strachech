@@ -235,8 +235,7 @@ class AlertRouter:
                 severity="critical",
                 title="Data interruption detected",
                 message=(
-                    "Observed market-data gap "
-                    f"{observed_gap} exceeded allowed gap {allowed_gap}."
+                    f"Observed market-data gap {observed_gap} exceeded allowed gap {allowed_gap}."
                 ),
                 run_id=run_id,
                 symbol=symbol,
@@ -265,10 +264,7 @@ class AlertRouter:
                 alert_type="order_stuck",
                 severity="error",
                 title="Order appears stuck",
-                message=(
-                    f"Order {order_id} stayed in {status} for "
-                    f"{float(stuck_seconds):.1f}s."
-                ),
+                message=(f"Order {order_id} stayed in {status} for {float(stuck_seconds):.1f}s."),
                 run_id=run_id,
                 symbol=symbol,
                 details=payload_details,
@@ -301,8 +297,7 @@ class AlertRouter:
                 severity="critical",
                 title="Drawdown threshold exceeded",
                 message=(
-                    f"Drawdown {float(drawdown):.6f} exceeded threshold "
-                    f"{float(threshold):.6f}."
+                    f"Drawdown {float(drawdown):.6f} exceeded threshold {float(threshold):.6f}."
                 ),
                 run_id=run_id,
                 symbol=symbol,

@@ -10,7 +10,7 @@
 
 Stratcheck is a delivery-oriented quantitative research framework designed to improve trust in strategy evaluation. Traditional research workflows often fail at handoff because results are hard to reproduce, assumptions are under-tested, and execution context is weakly documented. Stratcheck addresses this by combining config-driven runs, walk-forward health checks, cost-sensitivity analysis, execution-quality diagnostics, and run-level audit replay into a unified pipeline. The system produces versionable HTML artifacts (reports, dashboards, and reproducibility bundles) and publishes them as static Pages outputs for low-friction review. In practice, this approach shifts evaluation from single-number backtest performance toward process reliability: whether a strategy remains interpretable, stable, and auditable under realistic assumptions.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-0f766e?style=for-the-badge)](./site/index.html)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-0f766e?style=for-the-badge)](https://constantine-s-an.github.io/strachech/)
 [![Quickstart](https://img.shields.io/badge/Quickstart-5%20Minutes-1d4ed8?style=for-the-badge)](#quickstart)
 [![Docs](https://img.shields.io/badge/Docs-Read-334155?style=for-the-badge)](./docs/START_HERE.md)
 [![Case Study](https://img.shields.io/badge/Case%20Study-Interview-0f766e?style=for-the-badge)](./docs/case-study.md)
@@ -24,8 +24,9 @@ Stratcheck is a delivery-oriented quantitative research framework designed to im
 
 > Run `make demo-gif` to generate/update this recording.
 
-Pages URL（在仓库 Settings > Pages 配置后填写）：
-- `https://<your-user>.github.io/<your-repo>/`
+Pages URL:
+- [https://constantine-s-an.github.io/strachech/](https://constantine-s-an.github.io/strachech/)
+- If the link is temporarily unavailable, open the latest Pages run in [Actions](./.github/workflows/pages.yml).
 
 ## Screen 2 · Architecture
 
@@ -65,15 +66,10 @@ python scripts/build_site.py --root .
 
 ### Live Demo Pages
 
-Repo-relative:
-- Landing: [`./site/index.html`](./site/index.html)
-- Featured report: [`./site/report/index.html`](./site/report/index.html)
-- Dashboard: [`./site/dashboard/index.html`](./site/dashboard/index.html)
-
-Pages URL template（替换 `<your-user>` / `<your-repo>`）:
-- Landing: `https://<your-user>.github.io/<your-repo>/`
-- Featured report: `https://<your-user>.github.io/<your-repo>/report/`
-- Dashboard: `https://<your-user>.github.io/<your-repo>/dashboard/`
+GitHub Pages:
+- Landing: [https://constantine-s-an.github.io/strachech/](https://constantine-s-an.github.io/strachech/)
+- Featured report: [https://constantine-s-an.github.io/strachech/report/](https://constantine-s-an.github.io/strachech/report/)
+- Dashboard: [https://constantine-s-an.github.io/strachech/dashboard/](https://constantine-s-an.github.io/strachech/dashboard/)
 
 ### Repro Flow (Mermaid)
 

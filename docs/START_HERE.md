@@ -4,8 +4,8 @@ If you only have 5 minutes, use this page as the navigation hub.
 
 ## 1) Live Demo (Pages)
 
-- Repo-relative: [`../site/index.html`](../site/index.html)
-- Pages URL template: `https://<your-user>.github.io/<your-repo>/`
+- Live: [https://constantine-s-an.github.io/strachech/](https://constantine-s-an.github.io/strachech/)
+- If unavailable, check the latest run of [`pages.yml`](../.github/workflows/pages.yml).
 
 ## 2) 5-min Quickstart
 
@@ -20,7 +20,7 @@ python scripts/build_site.py --root .
 ## 3) Case Study
 
 - [`./case-study.md`](./case-study.md)
-- Site page after build: [`../site/case-study/index.html`](../site/case-study/index.html)
+- Live page: [https://constantine-s-an.github.io/strachech/case-study/](https://constantine-s-an.github.io/strachech/case-study/)
 
 ## 4) Interview Pack
 

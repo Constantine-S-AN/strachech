@@ -242,8 +242,7 @@ def _default_websocket_factory(
         raise RuntimeError(msg) from error
 
     header_lines = [
-        f"{header_name}: {header_value}"
-        for header_name, header_value in headers.items()
+        f"{header_name}: {header_value}" for header_name, header_value in headers.items()
     ]
     return websocket.create_connection(url, header=header_lines, timeout=timeout_seconds)
 
@@ -585,8 +584,7 @@ class RealPaperConnector:
         response = self._request_with_retries("GET", self.positions_path, payload=None)
         if response.status_code not in {200, 206}:
             msg = (
-                "Position refresh failed with "
-                f"status={response.status_code}: {response.payload!r}"
+                f"Position refresh failed with status={response.status_code}: {response.payload!r}"
             )
             raise RuntimeError(msg)
 
@@ -604,8 +602,7 @@ class RealPaperConnector:
                 or 0.0
             )
             avg_value = float(
-                _as_float(_first_present(item, ("average_price", "avg_price")), 0.0)
-                or 0.0
+                _as_float(_first_present(item, ("average_price", "avg_price")), 0.0) or 0.0
             )
             if abs(qty_value) <= _EPSILON:
                 continue
@@ -752,9 +749,7 @@ class RealPaperConnector:
 
     def _consume_websocket_payload(self, raw_message: str | bytes) -> None:
         message_text = (
-            raw_message.decode("utf-8")
-            if isinstance(raw_message, bytes)
-            else str(raw_message)
+            raw_message.decode("utf-8") if isinstance(raw_message, bytes) else str(raw_message)
         )
         stripped = message_text.strip()
         if not stripped:
@@ -808,9 +803,7 @@ class RealPaperConnector:
                     order,
                     created_at=previous.created_at,
                     canceled_at=(
-                        order.canceled_at
-                        if order.status == "canceled"
-                        else previous.canceled_at
+                        order.canceled_at if order.status == "canceled" else previous.canceled_at
                     ),
                 )
 
@@ -825,9 +818,7 @@ class RealPaperConnector:
             emitted_fill_price = reported_fill_price
             if emitted_fill_qty > _EPSILON and emitted_fill_price is None:
                 emitted_fill_price = (
-                    float(merged_order.avg_fill_price)
-                    if merged_order.avg_fill_price > 0
-                    else None
+                    float(merged_order.avg_fill_price) if merged_order.avg_fill_price > 0 else None
                 )
 
             self._orders_by_id[merged_order.order_id] = merged_order
@@ -875,9 +866,7 @@ class RealPaperConnector:
             BrokerPosition(order.symbol, 0.0, 0.0),
         )
         effective_fill_price = (
-            float(fill_price)
-            if fill_price is not None
-            else float(existing_position.average_price)
+            float(fill_price) if fill_price is not None else float(existing_position.average_price)
         )
 
         if order.side == "buy":
@@ -1001,9 +990,7 @@ class RealPaperConnector:
         )
         canceled_raw = _first_present(payload, ("canceled_at", "cancelled_at"))
         canceled_timestamp = (
-            _normalize_timestamp(canceled_raw)
-            if canceled_raw is not None
-            else None
+            _normalize_timestamp(canceled_raw) if canceled_raw is not None else None
         )
 
         order = BrokerOrder(

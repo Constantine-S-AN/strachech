@@ -237,9 +237,7 @@ class MultiRunnerOrchestrator:
                         metrics_csv_path=state.paths.metrics_csv_path,
                         duration_seconds=float(elapsed_seconds),
                         error_type="TimeoutError",
-                        error_message=(
-                            f"runner exceeded max_runtime_seconds={timeout_limit:.3f}"
-                        ),
+                        error_message=(f"runner exceeded max_runtime_seconds={timeout_limit:.3f}"),
                         exit_code=process.exitcode,
                     )
                     completed_task_ids.append(task_id)

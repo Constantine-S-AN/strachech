@@ -81,8 +81,7 @@ class MaxDrawdownRule:
             action=self.action,
             reason="max_drawdown_exceeded",
             message=(
-                f"drawdown {drawdown_ratio:.6f} exceeded threshold "
-                f"{float(self.max_drawdown):.6f}"
+                f"drawdown {drawdown_ratio:.6f} exceeded threshold {float(self.max_drawdown):.6f}"
             ),
             details={
                 "drawdown": float(drawdown_ratio),
@@ -131,9 +130,7 @@ class MaxPositionRule:
                 "projected_position_qty": float(projected_qty),
                 "max_abs_position_qty": float(self.max_abs_position_qty),
                 "order_side": str(context.order_side or ""),
-                "order_qty": (
-                    None if context.order_qty is None else float(context.order_qty)
-                ),
+                "order_qty": (None if context.order_qty is None else float(context.order_qty)),
             },
         )
 
@@ -168,10 +165,7 @@ class MaxDailyTradesRule:
             rule_name=self.name,
             action=self.action,
             reason="max_daily_trades_exceeded",
-            message=(
-                f"daily trade limit reached ({used_count} >= "
-                f"{int(self.max_trades_per_day)})"
-            ),
+            message=(f"daily trade limit reached ({used_count} >= {int(self.max_trades_per_day)})"),
             details={
                 "daily_trade_count": int(used_count),
                 "max_trades_per_day": int(self.max_trades_per_day),
@@ -230,9 +224,7 @@ class DataAnomalyHaltRule:
             rule_name=self.name,
             action=self.action,
             reason="data_interruption_detected",
-            message=(
-                f"observed gap {observed_gap} exceeded allowed gap {allowed_gap}"
-            ),
+            message=(f"observed gap {observed_gap} exceeded allowed gap {allowed_gap}"),
             details={
                 "observed_gap_seconds": float(observed_gap.total_seconds()),
                 "allowed_gap_seconds": float(allowed_gap.total_seconds()),
@@ -287,12 +279,15 @@ class DataAnomalyHaltRule:
                     "low": float(parsed_values["low"]),
                 },
             )
-        if min(
-            parsed_values["open"],
-            parsed_values["high"],
-            parsed_values["low"],
-            parsed_values["close"],
-        ) <= 0:
+        if (
+            min(
+                parsed_values["open"],
+                parsed_values["high"],
+                parsed_values["low"],
+                parsed_values["close"],
+            )
+            <= 0
+        ):
             return RuleHit(
                 rule_name=self.name,
                 action=self.action,
@@ -351,9 +346,7 @@ class DataAnomalyHaltRule:
             "rule": self.name,
             "action": self.action,
             "max_data_gap_steps": int(self.max_data_gap_steps),
-            "max_abs_return": (
-                None if self.max_abs_return is None else float(self.max_abs_return)
-            ),
+            "max_abs_return": (None if self.max_abs_return is None else float(self.max_abs_return)),
         }
 
 

@@ -147,9 +147,8 @@ def _build_order_views(
             and normalized_filled_qty > _EPSILON
             and normalized_filled_qty + _EPSILON < requested_qty
         )
-        is_canceled = (
-            status_text in {"canceled", "cancelled", "rejected", "expired"}
-            or (not inferred_filled)
+        is_canceled = status_text in {"canceled", "cancelled", "rejected", "expired"} or (
+            not inferred_filled
         )
 
         signal_price = _lookup_signal_price(

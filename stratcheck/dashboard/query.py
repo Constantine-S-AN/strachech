@@ -6,7 +6,6 @@ import json
 import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
 import pandas as pd
 
@@ -543,8 +542,7 @@ def _load_recent_errors(
 
     entries: list[dict[str, object]] = []
     run_meta = {
-        str(row["run_id"]): {"symbol": str(row["symbol"])}
-        for _, row in live_runs.iterrows()
+        str(row["run_id"]): {"symbol": str(row["symbol"])} for _, row in live_runs.iterrows()
     }
 
     for _, run_row in live_runs.iterrows():

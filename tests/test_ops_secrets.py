@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from stratcheck.ops import JsonEventLogger
 from stratcheck.ops.secrets import (
     LocalEncryptedSecretStore,

@@ -4,7 +4,6 @@ import sqlite3
 from pathlib import Path
 
 import pandas as pd
-
 from stratcheck.connectors import LivePaperRunner, PaperBrokerConnector
 from stratcheck.core.strategy import OrderIntent, PortfolioState
 from stratcheck.dashboard import load_paper_run_statuses
