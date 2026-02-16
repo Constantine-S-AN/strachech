@@ -10,7 +10,8 @@
 
 Stratcheck is a delivery-oriented quantitative research framework designed to improve trust in strategy evaluation. Traditional research workflows often fail at handoff because results are hard to reproduce, assumptions are under-tested, and execution context is weakly documented. Stratcheck addresses this by combining config-driven runs, walk-forward health checks, cost-sensitivity analysis, execution-quality diagnostics, and run-level audit replay into a unified pipeline. The system produces versionable HTML artifacts (reports, dashboards, and reproducibility bundles) and publishes them as static Pages outputs for low-friction review. In practice, this approach shifts evaluation from single-number backtest performance toward process reliability: whether a strategy remains interpretable, stable, and auditable under realistic assumptions.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-0f766e?style=for-the-badge)](https://constantine-s-an.github.io/strachech/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Pages-0f766e?style=for-the-badge)](https://constantine-s-an.github.io/strachech/)
+[![Enable Pages](https://img.shields.io/badge/Enable%20Pages-First%20Setup-f59e0b?style=for-the-badge)](https://github.com/Constantine-S-AN/strachech/settings/pages)
 [![Quickstart](https://img.shields.io/badge/Quickstart-5%20Minutes-1d4ed8?style=for-the-badge)](#quickstart)
 [![Docs](https://img.shields.io/badge/Docs-Read-334155?style=for-the-badge)](./docs/START_HERE.md)
 [![Case Study](https://img.shields.io/badge/Case%20Study-Interview-0f766e?style=for-the-badge)](./docs/case-study.md)
@@ -25,6 +26,7 @@ Stratcheck is a delivery-oriented quantitative research framework designed to im
 > Run `make demo-gif` to generate/update this recording.
 
 Pages URL:
+- First-time setup (one-time): open [Settings > Pages](https://github.com/Constantine-S-AN/strachech/settings/pages), set **Source = GitHub Actions**, then run [`pages.yml`](./.github/workflows/pages.yml) once.
 - [https://constantine-s-an.github.io/strachech/](https://constantine-s-an.github.io/strachech/)
 - If the link is temporarily unavailable, open the latest Pages run in [Actions](./.github/workflows/pages.yml).
 

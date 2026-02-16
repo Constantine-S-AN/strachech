@@ -4,6 +4,7 @@ If you only have 5 minutes, use this page as the navigation hub.
 
 ## 1) Live Demo (Pages)
 
+- First-time setup (one-time): open [Settings > Pages](https://github.com/Constantine-S-AN/strachech/settings/pages), set **Source = GitHub Actions**, then trigger [`pages.yml`](../.github/workflows/pages.yml) once.
 - Live: [https://constantine-s-an.github.io/strachech/](https://constantine-s-an.github.io/strachech/)
 - If unavailable, check the latest run of [`pages.yml`](../.github/workflows/pages.yml).
 
