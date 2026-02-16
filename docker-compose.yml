@@ -1,0 +1,38 @@
+services:
+  runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stratcheck-local:latest
+    command: ["python", "scripts/docker_runner.py"]
+    volumes:
+      - ./reports:/app/reports
+      - ./data:/app/data
+      - ./configs:/app/configs
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stratcheck-local:latest
+    command:
+      [
+        "python",
+        "-m",
+        "stratcheck",
+        "dashboard",
+        "--results-jsonl",
+        "reports/results.jsonl",
+        "--db",
+        "reports/paper_trading.sqlite",
+        "--output",
+        "reports/dashboard.html",
+        "--reports-dir",
+        "reports",
+      ]
+    volumes:
+      - ./reports:/app/reports
+      - ./data:/app/data
+      - ./configs:/app/configs
+    depends_on:
+      - runner

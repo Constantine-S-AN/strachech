@@ -1,0 +1,136 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          pip install -e ".[dev]"
+
+      - name: Ruff lint
+        run: |
+          ruff format --check .
+          ruff check .
+
+      - name: Pytest
+        run: pytest -q
+
+      - name: Build demo report
+        if: matrix.python-version == '3.11'
+        run: python -m stratcheck demo
+
+      - name: Build healthcheck summary source
+        if: matrix.python-version == '3.11'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import numpy as np
+          import pandas as pd
+
+          root = Path(".")
+          data_dir = root / "data"
+          data_dir.mkdir(parents=True, exist_ok=True)
+
+          timestamps = pd.date_range("2023-01-01", periods=240, freq="D", tz="UTC")
+          rng = np.random.default_rng(7)
+          close = 100.0 + np.cumsum(rng.normal(loc=0.05, scale=0.9, size=len(timestamps)))
+
+          bars = pd.DataFrame(
+              {
+                  "timestamp": timestamps.astype(str),
+                  "open": close - 0.3,
+                  "high": close + 1.2,
+                  "low": close - 1.1,
+                  "close": close,
+                  "volume": np.full(len(timestamps), 1000),
+              }
+          )
+          bars.to_csv(data_dir / "BTCUSDT.csv", index=False)
+
+          config_text = """
+          symbol = "BTCUSDT"
+          data_path = "data"
+          strategy = "stratcheck.core.strategy:MovingAverageCrossStrategy"
+          initial_cash = 100000
+          timeframe = "1d"
+          bars_freq = "1d"
+          report_name = "ci_healthcheck"
+          report_dir = "reports"
+
+          [cost_model]
+          commission_bps = 5
+          slippage_bps = 5
+
+          [windows]
+          window_size = "60D"
+          step_size = "30D"
+
+          [strategy_params]
+          short_window = 10
+          long_window = 30
+          target_position_qty = 1.0
+          """
+          Path(".ci_healthcheck.toml").write_text(config_text.strip() + "\n", encoding="utf-8")
+          PY
+          python -m stratcheck healthcheck --config .ci_healthcheck.toml
+
+      - name: Post healthcheck summary
+        if: matrix.python-version == '3.11'
+        run: python scripts/post_summary.py reports/healthcheck_summary.json >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: stratcheck-reports
+          path: reports/
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          pip install -e ".[dev]"
+
+      - name: Build wheel and sdist
+        run: python -m build
+
+      - name: Build demo report
+        run: python -m stratcheck demo
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stratcheck-dist
+          path: dist/
+
+      - name: Upload release report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stratcheck-release-reports
+          path: reports/

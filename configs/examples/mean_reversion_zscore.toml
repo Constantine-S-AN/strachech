@@ -1,0 +1,23 @@
+symbol = "QQQ"
+data_path = "../../data"
+strategy = "stratcheck.strategies:MeanReversionZScoreStrategy"
+initial_cash = 100000
+timeframe = "1d"
+bars_freq = "1d"
+report_name = "qqq_mean_reversion_zscore"
+report_dir = "../../reports"
+
+[cost_model]
+type = "fixed_bps"
+commission_bps = 2
+slippage_bps = 1
+
+[windows]
+window_size = "6M"
+step_size = "3M"
+
+[strategy_params]
+lookback = 20
+entry_z = 1.5
+exit_z = 0.25
+target_position_qty = 1.0

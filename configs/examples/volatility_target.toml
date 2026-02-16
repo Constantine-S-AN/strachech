@@ -1,0 +1,26 @@
+symbol = "QQQ"
+data_path = "../../data"
+strategy = "stratcheck.strategies:VolatilityTargetStrategy"
+initial_cash = 100000
+timeframe = "1d"
+bars_freq = "1d"
+report_name = "qqq_volatility_target"
+report_dir = "../../reports"
+
+[cost_model]
+type = "fixed_bps"
+commission_bps = 2
+slippage_bps = 1
+
+[windows]
+window_size = "6M"
+step_size = "3M"
+
+[strategy_params]
+target_volatility = 0.15
+lookback = 20
+base_position_qty = 1.0
+max_leverage = 2.0
+bars_freq = "1d"
+min_volatility = 0.0001
+rebalance_threshold = 0.05

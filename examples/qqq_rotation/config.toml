@@ -1,0 +1,33 @@
+symbol = "QQQ"
+data_path = "../../data"
+strategy = "stratcheck.core.strategy:MovingAverageCrossStrategy"
+initial_cash = 100000
+timeframe = "1d"
+bars_freq = "1d"
+report_name = "qqq_rotation_tutorial"
+report_dir = "../../reports"
+
+[cost_model]
+type = "fixed_bps"
+commission_bps = 2
+slippage_bps = 1
+
+[windows]
+window_size = "6M"
+step_size = "3M"
+
+[strategy_params]
+short_window = 15
+long_window = 50
+target_position_qty = 1.0
+
+[robustness]
+bootstrap_samples = 500
+confidence = 0.95
+
+[robustness.parameter_sweep]
+metric = "sharpe"
+
+[robustness.parameter_sweep.grid]
+short_window = [10, 15, 20]
+long_window = [40, 50, 60]
